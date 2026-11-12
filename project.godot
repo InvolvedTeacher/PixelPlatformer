@@ -13,9 +13,24 @@ config_version=5
 config/name="PixelPlatformer"
 config/features=PackedStringArray("4.6", "Mobile")
 
+[display]
+
+window/size/viewport_width=426
+window/size/viewport_height=240
+window/size/window_width_override=1280
+window/size/window_height_override=720
+
 [dotnet]
 
 project/assembly_name="PixelPlatformer"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "blue",
+"res://scenes/": "yellow",
+"res://scripts/": "red"
+}
 
 [physics]
 
