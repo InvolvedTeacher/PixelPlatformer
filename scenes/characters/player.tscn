@@ -200,7 +200,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 15.0
+"speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7xgtv"]
@@ -212,9 +212,9 @@ texture_filter = 1
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=550044813]
 sprite_frames = SubResource("SpriteFrames_dg40j")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.85997385
+frame_progress = 0.89736557
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2126612333]
 position = Vector2(0, 4)

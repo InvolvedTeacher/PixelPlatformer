@@ -4,8 +4,14 @@ namespace Game.Characters;
 
 public partial class Player : CharacterBody2D
 {
-    public const float Speed = 300.0f;
-    public const float JumpVelocity = -400.0f;
+    public const float Speed = 150.0f;
+    public const float JumpVelocity = -300.0f;
+    private AnimatedSprite2D _sprite;
+
+    public override void _Ready()
+    {
+        _sprite = GetNode<AnimatedSprite2D>("Sprite");
+    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -33,6 +39,29 @@ public partial class Player : CharacterBody2D
         else
         {
             velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+        }
+
+        // Change player animations according to their movement
+        if (IsOnFloor())
+        {
+            if (velocity.X == 0)
+                _sprite.Play("idle");
+            else
+                _sprite.Play("run");
+        }
+        else
+        {
+            if (velocity.Y < 0)
+                _sprite.Play("jump");
+            else
+                _sprite.Play("fall");
+        }
+        if (velocity.X != 0)
+        {
+            if (velocity.X < 0)
+                _sprite.FlipH = true;
+            else
+                _sprite.FlipH = false;
         }
 
         Velocity = velocity;
