@@ -1,16 +1,25 @@
+using Game.StateMachines;
+using Game.StateMachines.PlayerMovement;
 using Godot;
 
 namespace Game.Characters;
 
-public partial class Player : CharacterBody2D
+public partial class Player : CharacterBody2D, IStateMachine
 {
     public const float Speed = 150.0f;
     public const float JumpVelocity = -300.0f;
     private AnimatedSprite2D _sprite;
+    protected State Curr_state { get; set; } = new Idle();
+    State IStateMachine.Curr_state
+    {
+        get => Curr_state;
+        set => Curr_state = value;
+    }
 
     public override void _Ready()
     {
         _sprite = GetNode<AnimatedSprite2D>("Sprite");
+        Curr_state = new Idle();
     }
 
     public override void _PhysicsProcess(double delta)
