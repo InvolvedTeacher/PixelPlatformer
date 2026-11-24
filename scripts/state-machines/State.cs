@@ -8,8 +8,6 @@ public abstract class State
 
 	public virtual void Exit() { }
 
-	public virtual void Ready() { }
-
 	public virtual void Process(double delta) { }
 
 	public virtual void PhysicsProcess(double delta) { }

@@ -15,14 +15,4 @@ public interface IStateMachine
 		Curr_state.SetStateMachine(this);
 		Curr_state.Enter();
 	}
-
-	public void Process(double delta)
-	{
-		Curr_state.Process(delta);
-	}
-
-	public void PhysicsProcess(double delta)
-	{
-		Curr_state.PhysicsProcess(delta);
-	}
 }
